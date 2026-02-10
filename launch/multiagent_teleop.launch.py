@@ -86,6 +86,13 @@ def generate_launch_description():
             ],
             output='screen'
         ),
+        Node(package='fleet_manager',
+             executable='fleet_manager_node',
+             name='fleet_manager_node',
+             namespace='fleet_manager',
+             parameters=[os.path.join(get_package_share_directory('fleet_manager'), 'params', 'experiment_params.yaml')],
+             output='screen'
+        ),
         Node(
             package='joy',
             executable='joy_node',

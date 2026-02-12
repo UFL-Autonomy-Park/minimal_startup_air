@@ -30,7 +30,8 @@ def generate_launch_description():
                 os.path.join(get_package_share_directory('px4_safety_lib'), 'param', 'safety_config.yaml'),
                 os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'park_coordinates.yaml'),
                 os.path.join(get_package_share_directory('px4_teleop'), 'param', 'sim_obstacles.yaml'),
-                os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml')
+                os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml'),
+                {"agent_ids": ['agent_1', 'agent_2', 'agent_3']}
             ],
             output='screen'
         ),
@@ -56,7 +57,9 @@ def generate_launch_description():
                 os.path.join(get_package_share_directory('px4_safety_lib'), 'param', 'safety_config.yaml'),
                 os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'park_coordinates.yaml'),
                 os.path.join(get_package_share_directory('px4_teleop'), 'param', 'sim_obstacles.yaml'),
-                os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml')
+                os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml'),
+                {"agent_ids": ['agent_1', 'agent_2', 'agent_3']}
+
             ],
             output='screen'
         ),
@@ -82,7 +85,9 @@ def generate_launch_description():
                 os.path.join(get_package_share_directory('px4_safety_lib'), 'param', 'safety_config.yaml'),
                 os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'park_coordinates.yaml'),
                 os.path.join(get_package_share_directory('px4_teleop'), 'param', 'sim_obstacles.yaml'),
-                os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml')
+                os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml'),
+                {"agent_ids": ['agent_1', 'agent_2', 'agent_3']}
+
             ],
             output='screen'
         ),

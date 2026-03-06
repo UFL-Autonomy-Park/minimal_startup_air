@@ -56,6 +56,14 @@ def generate_launch_description():
             output='screen'
         ),
         Node(
+            package='joy',
+            executable='joy_node',
+            name='joy_node',
+            namespace='astro_sim',
+            parameters=[os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'joy_config.yaml')],
+            output='screen'
+        ),
+        Node(
             package='px4_teleop',
             executable='px4_teleop_node',
             name='px4_teleop_node',

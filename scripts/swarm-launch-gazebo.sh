@@ -3,6 +3,7 @@
 export PX4_HOME_LAT=29.6282703
 export PX4_HOME_LON=-82.3606036
 export PX4_HOME_ALT=30.861857569478296
+export PX4_GZ_WORLD=autonomy_park
 
 PX4_DIR=~/PX4-Autopilot
 READY_STRING="Ready for takeoff!"
@@ -61,20 +62,19 @@ wait_for_ready() {
 
 cd $PX4_DIR
 
-# Instance 1 - loads Gazebo world
-launch_px4 1 4002 gz_x500_depth ""
+# Instance 1 - Spawns at X=6 (8 - 2), Y=65 and loads Gazebo world
+launch_px4 1 4002 gz_x500_depth "6,65"
 wait_for_ready 1 || exit 1
 
-# Instance 2
-launch_px4 2 4001 gz_x500_depth "0,4"
+# Instance 2 - Spawns at X=8, Y=65
+launch_px4 2 4001 gz_x500_depth "8,65"
 wait_for_ready 2 || exit 1
 
-# Instance 3
-launch_px4 3 4001 gz_x500_depth "0,8"
+# Instance 3 - Spawns at X=10 (8 + 2), Y=65
+launch_px4 3 4001 gz_x500_depth "10,65"
 wait_for_ready 3 || exit 1
 
 echo "[+] All instances ready!"
 
 # Keep script alive so background processes don't get killed
-# (remove this if you want the script to exit and leave them running)
 wait

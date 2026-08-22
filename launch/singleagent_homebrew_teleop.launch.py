@@ -24,7 +24,7 @@ def generate_launch_description():
                 'log_output': 'screen',
                 'fcu_protocol': 'v2.0',
                 'respawn_mavros': 'false',
-                'namespace': 'homebrew_sim'
+                'namespace': 'homebrew_0'
             }.items()
         ),
         
@@ -49,10 +49,9 @@ def generate_launch_description():
             package='px4_telemetry',
             executable='px4_telemetry_node',
             name='px4_telemetry_node',
-            namespace='homebrew_sim',
+            namespace='homebrew_0',
             parameters=[os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'park_coordinates.yaml'),
                         os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'button_config.yaml'),
-                        {'sim_mode': False}, # <--- 
             ],
             output='screen'
         ),
@@ -60,7 +59,7 @@ def generate_launch_description():
             package='joy',
             executable='joy_node',
             name='joy_node',
-            namespace='homebrew_sim',
+            namespace='homebrew_0',
             parameters=[os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'joy_config.yaml')],
             output='screen'
         ),
@@ -68,19 +67,13 @@ def generate_launch_description():
             package='px4_teleop',
             executable='px4_teleop_node',
             name='px4_teleop_node',
-            namespace='homebrew_sim',
+            namespace='homebrew_0',
             parameters=[
                 os.path.join(get_package_share_directory('px4_teleop'), 'param', 'teleop_config.yaml'),
                 os.path.join(get_package_share_directory('px4_safety_lib'), 'param', 'safety_config.yaml'),
                 os.path.join(get_package_share_directory('px4_telemetry'), 'param', 'park_coordinates.yaml'),
                 os.path.join(get_package_share_directory('px4_teleop'), 'param', 'sim_obstacles.yaml'),
                 os.path.join(get_package_share_directory('px4_teleop'), 'param', 'button_config.yaml'),
-                # KNOWN ISSUE (2026-08-20): sim_mode is set here (not in the shared
-                # teleop_config.yaml, which real-hardware launch files also use) because
-                # the autonomy_park_sitl Gazebo world's local/ENU frame already equals
-                # the Park frame -- see the KNOWN ISSUE comment block in
-                # px4_teleop/src/PX4Teleop.cpp (joy_callback) for the full explanation
-                # of why this double-corrects without sim_mode.
                 {'sim_mode': True},
             ],
             output='screen'

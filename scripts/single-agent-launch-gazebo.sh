@@ -66,7 +66,7 @@ wait_for_ready() {
 cd $PX4_DIR
 
 # Instance 1 - Spawns at X=6 (8 - 2), Y=65 and loads Gazebo world
-launch_px4 0 4025 gz_homebrew "0,20"
+launch_px4 0 22000 gz_homebrew "0,20"
 wait_for_ready 0
 
 echo "[+] All instances ready!"
